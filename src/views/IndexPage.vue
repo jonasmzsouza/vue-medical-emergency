@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand m-auto" href="#">Medical Emergencies</a>
+        <a class="navbar-brand m-auto" href="#">{{ $store.state.title }}</a>
       </div>
     </nav>
 
