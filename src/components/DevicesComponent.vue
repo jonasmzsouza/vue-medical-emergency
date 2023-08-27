@@ -23,7 +23,7 @@
               class="nav-link"
               :to="{
                 name: 'devices',
-                params: { type: 'resuscitation-kit' },
+                params: { type: 'resuscitation-kits' },
               }"
               >Resuscitation kits</router-link
             >

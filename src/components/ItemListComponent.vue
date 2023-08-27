@@ -25,6 +25,9 @@ export default {
       nurses: (state) => state.nurses,
       rescuers: (state) => state.rescuers,
       doctors: (state) => state.doctors,
+      cars: (state) => state.devices.cars,
+      phones: (state) => state.devices.phones,
+      resuscitationKits: (state) => state.devices.resuscitationKits,
     }),
     items() {
       switch (this.type) {
@@ -34,6 +37,12 @@ export default {
           return this.rescuers;
         case "doctors":
           return this.doctors;
+        case "cars":
+          return this.cars;
+        case "phones":
+          return this.phones;
+        case "resuscitation-kits":
+          return this.resuscitationKits;
       }
       return [];
     },
