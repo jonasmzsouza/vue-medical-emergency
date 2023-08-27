@@ -8,14 +8,14 @@
             <router-link
               class="nav-link"
               :to="{ name: 'professionals', params: { type: 'nurses' } }"
-              >Nurses</router-link
+              >Nurses ({{ $store.getters.numberOfNurses }})</router-link
             >
           </li>
           <li class="nav-item">
             <router-link
               class="nav-link"
               :to="{ name: 'professionals', params: { type: 'rescuers' } }"
-              >Rescuers</router-link
+              >Rescuers ({{ $store.getters.numberOfRescuers }})</router-link
             >
           </li>
           <li class="nav-item">

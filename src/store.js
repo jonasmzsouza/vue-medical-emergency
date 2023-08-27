@@ -19,10 +19,10 @@ export default new Vuex.Store({
       { id: 4, name: "José", schedule: "24x48" },
     ],
     rescuers: [
-      { id: 1, name: "Marcos", shift: "manhã" },
-      { id: 2, name: "Felipe", shift: "tarde" },
-      { id: 3, name: "Cláudia", shift: "tarde" },
-      { id: 4, name: "Michele", shift: "noite" },
+      { id: 1, name: "Marcos", shift: "morning" },
+      { id: 2, name: "Felipe", shift: "afternoon" },
+      { id: 3, name: "Cláudia", shift: "afternoon" },
+      { id: 4, name: "Michele", shift: "night" },
     ],
     doctors: [
       { id: 1, name: "André", schedule: "12x36" },
@@ -50,5 +50,19 @@ export default new Vuex.Store({
         { id: 4, kit: "K0004" },
       ],
     },
+  },
+  getters: {
+    numberOfNurses(state) {
+      return state.nurses.length;
+    },
+    rescuersPerShift(state) {
+      return (shift) =>
+        !shift
+          ? state.rescuers
+          : state.rescuers.filter((r) => r.shift === shift);
+    },
+    numberOfRescuers: (state) => state.rescuers.length,
+    numberOfRescuersPerShift: (state, getters) => (shift) =>
+      getters.rescuersPerShift(shift).length,
   },
 });
