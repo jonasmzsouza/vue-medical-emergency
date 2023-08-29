@@ -4,13 +4,12 @@ export default new Vuex.Store({
   state: {
     title: "Medical Emergencies",
     team: {
-      title: "ABC",
-      nurse: "Nurse name",
-      rescuer: "Rescuer name",
-      doctor: "Doctor name",
-      car: "License plate",
-      phone: "12346",
-      resuscitationKit: "Kit 0001",
+      nurse: "",
+      rescuer: "",
+      doctor: "",
+      car: "",
+      phone: "",
+      resuscitationKit: "",
     },
     nurses: [
       { id: 1, name: "João", schedule: "12x36" },
@@ -64,5 +63,32 @@ export default new Vuex.Store({
     numberOfRescuers: (state) => state.rescuers.length,
     numberOfRescuersPerShift: (state, getters) => (shift) =>
       getters.rescuersPerShift(shift).length,
+  },
+  mutations: {
+    setItemToTeam: (state, item) => {
+      let t = item.type;
+      let d = item.data;
+
+      switch (t) {
+        case "nurses":
+          state.team.nurse = d.name;
+          break;
+        case "rescuers":
+          state.team.rescuer = d.name;
+          break;
+        case "doctors":
+          state.team.doctor = d.name;
+          break;
+        case "cars":
+          state.team.car = d.licensePlate;
+          break;
+        case "phones":
+          state.team.phone = d.phone;
+          break;
+        case "resuscitation-kits":
+          state.team.resuscitationKit = d.kit;
+          break;
+      }
+    },
   },
 });

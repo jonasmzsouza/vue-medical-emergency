@@ -12,6 +12,7 @@
       v-for="(item, index) in items"
       :key="index"
       :data="item"
+      :type="type"
     ></item-component>
     <div v-if="type == 'rescuers'">
       Total: {{ numberOfRescuersPerShift(shift) }}
