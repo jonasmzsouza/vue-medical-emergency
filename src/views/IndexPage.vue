@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import TeamConfigurationComponent from "@/components/TeamConfigurationComponent.vue";
 import DevicesComponent from "@/components/DevicesComponent.vue";
 import TeamsComponent from "@/components/TeamsComponent.vue";
@@ -48,6 +49,38 @@ export default {
   name: "IndexPage",
   props: {
     msg: String,
+  },
+  methods: {
+    ...mapMutations([
+      "setNurses",
+      "setRescuers",
+      "setDoctors",
+      "setDevices",
+      "setCars",
+      "setPhones",
+      "setResuscitationKits",
+    ]),
+  },
+  created() {
+    fetch("http://localhost:3000/nurses")
+      .then((response) => response.json())
+      .then((data) => this.setNurses(data));
+
+    fetch("http://localhost:3000/rescuers")
+      .then((response) => response.json())
+      .then((data) => this.setRescuers(data));
+
+    fetch("http://localhost:3000/doctors")
+      .then((response) => response.json())
+      .then((data) => this.setDoctors(data));
+
+    fetch("http://localhost:3000/devices")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setCars(data.cars);
+        this.setPhones(data.phones);
+        this.setResuscitationKits(data.resuscitationKits);
+      });
   },
 };
 </script>

@@ -1,0 +1,54 @@
+{
+  "nurses": [
+    { "id": 1, "name": "João", "schedule": "12x36" },
+    { "id": 2, "name": "Maria", "schedule": "12x36" },
+    { "id": 3, "name": "Ana", "schedule": "24x48" },
+    { "id": 4, "name": "José", "schedule": "24x48" },
+    { "id": 5, "name": "Felipe", "schedule": "12x36" },
+    { "id": 6, "name": "Marcelo", "schedule": "24x48" },
+    { "id": 7, "name": "Antônio", "schedule": "12x36" }
+  ],
+  "rescuers": [
+    { "id": 1, "name": "Marcos", "shift": "morning" },
+    { "id": 2, "name": "Felipe", "shift": "afternoon" },
+    { "id": 3, "name": "Cláudia", "shift": "afternoon" },
+    { "id": 4, "name": "Michele", "shift": "night" },
+    { "id": 5, "name": "Pedro", "shift": "morning" },
+    { "id": 6, "name": "Miguel", "shift": "morning" },
+    { "id": 7, "name": "Karina", "shift": "afternoon" }
+  ],
+  "doctors": [
+    { "id": 1, "name": "André", "schedule": "12x36" },
+    { "id": 2, "name": "Roberta", "schedule": "12x36" },
+    { "id": 3, "name": "Carlos", "schedule": "24x48" },
+    { "id": 4, "name": "Juliana", "schedule": "24x48" },
+    { "id": 5, "name": "Sérgio", "schedule": "12x36" },
+    { "id": 6, "name": "Renata", "schedule": "12x36" }
+  ],
+  "devices": {
+    "cars": [
+      { "id": 1, "licensePlate": "ABC-0000" },
+      { "id": 2, "licensePlate": "BRA1A11" },
+      { "id": 3, "licensePlate": "CBA-1111" },
+      { "id": 4, "licensePlate": "ARB2B22" },
+      { "id": 5, "licensePlate": "ZZZ-9999" },
+      { "id": 6, "licensePlate": "XYZ7A88" }
+    ],
+    "phones": [
+      { "id": 1, "phone": "+55 11 98888-8888" },
+      { "id": 2, "phone": "+55 11 97777-7777" },
+      { "id": 3, "phone": "+55 11 96666-6666" },
+      { "id": 4, "phone": "+55 11 95555-5555" },
+      { "id": 5, "phone": "+55 11 92222-2222" },
+      { "id": 6, "phone": "+55 11 93333-3333" }
+    ],
+    "resuscitationKits": [
+      { "id": 1, "kit": "K0001" },
+      { "id": 2, "kit": "K0002" },
+      { "id": 3, "kit": "K0003" },
+      { "id": 4, "kit": "K0004" },
+      { "id": 5, "kit": "K0005" },
+      { "id": 6, "kit": "K0006" }
+    ]
+  }
+}
