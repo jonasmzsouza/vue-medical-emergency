@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 import TeamConfigurationComponent from "@/components/TeamConfigurationComponent.vue";
 import DevicesComponent from "@/components/DevicesComponent.vue";
 import TeamsComponent from "@/components/TeamsComponent.vue";
@@ -60,27 +60,24 @@ export default {
       "setPhones",
       "setResuscitationKits",
     ]),
+    ...mapActions(["fetchDevices", "fetchProfessionals"]),
   },
   created() {
-    fetch("http://localhost:3000/nurses")
-      .then((response) => response.json())
-      .then((data) => this.setNurses(data));
-
-    fetch("http://localhost:3000/rescuers")
-      .then((response) => response.json())
-      .then((data) => this.setRescuers(data));
-
-    fetch("http://localhost:3000/doctors")
-      .then((response) => response.json())
-      .then((data) => this.setDoctors(data));
-
-    fetch("http://localhost:3000/devices")
-      .then((response) => response.json())
-      .then((data) => {
-        this.setCars(data.cars);
-        this.setPhones(data.phones);
-        this.setResuscitationKits(data.resuscitationKits);
-      });
+    /*
+    this.$store.dispatch({
+      type: "fetchDevices",
+      cars: true,
+      phones: true,
+      resuscitationKits: true,
+    });
+    this.$store.dispatch("fetchProfessionals");
+    */
+    this.fetchDevices({
+      cars: true,
+      phones: true,
+      resuscitationKits: true,
+    });
+    this.fetchProfessionals();
   },
 };
 </script>

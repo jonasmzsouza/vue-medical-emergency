@@ -79,4 +79,30 @@ export default new Vuex.Store({
       state.devices.resuscitationKits = payload;
     },
   },
+  //Implement business rules
+  actions: {
+    fetchDevices(context, { cars, phones, resuscitationKits }) {
+      fetch("http://localhost:3000/devices")
+        .then((response) => response.json())
+        .then((data) => {
+          if (cars) context.commit("setCars", data.cars);
+          if (phones) context.commit("setPhones", data.phones);
+          if (resuscitationKits)
+            context.commit("setResuscitationKits", data.resuscitationKits);
+        });
+    },
+    fetchProfessionals(context) {
+      fetch("http://localhost:3000/nurses")
+        .then((response) => response.json())
+        .then((data) => context.commit("setNurses", data));
+
+      fetch("http://localhost:3000/rescuers")
+        .then((response) => response.json())
+        .then((data) => context.commit("setRescuers", data));
+
+      fetch("http://localhost:3000/doctors")
+        .then((response) => response.json())
+        .then((data) => context.commit("setDoctors", data));
+    },
+  },
 });
