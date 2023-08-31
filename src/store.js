@@ -11,6 +11,7 @@ export default new Vuex.Store({
       phone: "",
       resuscitationKit: "",
     },
+    teams: [],
     nurses: [],
     rescuers: [],
     doctors: [],
@@ -77,6 +78,10 @@ export default new Vuex.Store({
     },
     setResuscitationKits: (state, payload) => {
       state.devices.resuscitationKits = payload;
+    },
+    addTeamInTeams: (state, payload) => {
+      state.teams.push(payload);
+      state.team = {};
     },
   },
   //Implement business rules

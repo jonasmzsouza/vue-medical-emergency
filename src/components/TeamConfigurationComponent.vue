@@ -19,13 +19,15 @@
           <div class="col">
             <img
               class="img-fluid"
-              :src="require('@/assets/ambulances/undefined.png')"
+              :src="require(`@/assets/ambulances/${ambulanceImage}`)"
             />
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
-            <button type="button" class="btn btn-primary">Set up team</button>
+            <button type="button" class="btn btn-primary" @click="setUpTeam">
+              Set up team
+            </button>
           </div>
         </div>
       </div>
@@ -55,6 +57,21 @@ export default {
         return `${this.title} - ${state.team.title}`;
       },
     }),
+    ambulanceImage() {
+      if (this.team.resuscitationKit) {
+        return "ica.png";
+      }
+      if (this.team.car) {
+        return "simple.png";
+      }
+      return "undefined.png";
+    },
+  },
+  methods: {
+    setUpTeam() {
+      let team = Object.assign({}, this.$store.state.team);
+      this.$store.commit("addTeamInTeams", team);
+    },
   },
 };
 </script>
