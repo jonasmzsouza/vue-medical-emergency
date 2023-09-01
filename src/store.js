@@ -4,6 +4,7 @@ export default new Vuex.Store({
   state: {
     title: "Medical Emergencies",
     team: {
+      title: "ABC",
       nurse: "",
       rescuer: "",
       doctor: "",
